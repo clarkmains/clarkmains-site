@@ -1,0 +1,20 @@
+---
+import Layout from "@layouts/BaseLayout.astro";
+import PageHeading from "@components/PageHeading.astro";
+import BlogPostCard from "@components/BlogPostCard.astro";
+
+const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
+  (a, b) =>
+    new Date(b.frontmatter.date).valueOf() -
+    new Date(a.frontmatter.date).valueOf()
+);
+---
+
+<Layout>
+  <PageHeading>All Posts</PageHeading>
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid gap-x-10 gap-y-12 md:grid-cols-2">
+      {posts.map((post) => <BlogPostCard post={post} />)}
+    </div>
+  </section>
+</Layout>

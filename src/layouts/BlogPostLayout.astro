@@ -1,0 +1,55 @@
+---
+import { Picture } from "@astrojs/image/components";
+import Layout from "@layouts/BaseLayout.astro";
+import BlogTags from "@components/BlogTags.astro";
+import GenericForm from "@components/GenericForm.astro";
+import GitHubLink from "@components/GitHubLink.astro";
+
+export interface Props {
+  content: {
+    title: string;
+    description: string;
+    image: string;
+    github?: string;
+    tags: Array<string>;
+  };
+}
+
+const {
+  content: { title, description, image, github, tags },
+} = Astro.props as Props;
+---
+
+<Layout title={title} description={description} image={image} alt={title}>
+  <section class="mx-auto mt-10">
+    <article class="space-y-7">
+      <header class="max-w-3xl mx-auto text-center space-y-7 px-4">
+        <h1
+          class="text-4xl md:text-5xl font-bold tracking-tight dark:text-zinc-200"
+        >
+          {title}
+        </h1>
+        <h2 class="text-xl text-zinc-600 dark:text-zinc-400">
+          {description}
+        </h2>
+        <BlogTags tags={tags} />
+      </header>
+      <div class="mx-auto max-w-4xl">
+        <Picture
+          src={image}
+          widths={[400, 900]}
+          sizes="(max-width: 900px) 400px, 900px"
+          alt={title}
+          aspectRatio="16:9"
+        />
+      </div>
+      {github && <GitHubLink link={github} />}
+      <div
+        class="container px-4 sm:px-6 mx-auto max-w-3xl prose prose-lg prose-zinc dark:prose-invert prose-img:rounded-md prose-img:shadow-lg prose-code:before:content-none prose-code:after:content-none"
+      >
+        <slot />
+        <GenericForm name="feedback" heading="Feedback? Let's hear it!" />
+      </div>
+    </article>
+  </section>
+</Layout>

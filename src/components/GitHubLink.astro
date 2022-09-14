@@ -1,0 +1,37 @@
+---
+import { Icon } from "astro-icon";
+
+export interface Props {
+  link: string;
+}
+
+const { link } = Astro.props;
+const label = "View example code on GitHub";
+---
+
+<section class="mx-auto text-center space-y-7 px-4">
+  <a
+    class="inline-flex justify-between items-center mx-auto no-underline rounded-lg px-4 md:px-6 py-3 text-zinc-600 dark:text-zinc-300 bg-zinc-200 dark:bg-zinc-700/50 hover:bg-zinc-300 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-50"
+    href={link}
+    aria-label={label}
+    target="_blank"
+    rel="noopener"
+  >
+    <span class="px-3 py-1.5">
+      <Icon name="bi:github" class="w-5 h-5" />
+    </span>
+    <span class="text-normal font-medium">{label}</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      aria-hidden="true"
+      class="ml-2 w-5 h-5"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+        clip-rule="evenodd"></path>
+    </svg>
+  </a>
+</section>

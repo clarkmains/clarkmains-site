@@ -1,0 +1,21 @@
+{
+  "name": "clarkmains.com",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@astrojs/image": "^0.7.0",
+    "@astrojs/mdx": "^0.11.1",
+    "@astrojs/tailwind": "^2.0.0",
+    "@tailwindcss/typography": "^0.5.7",
+    "astro": "^1.2.4"
+  }
+}

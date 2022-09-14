@@ -1,0 +1,92 @@
+---
+import { Icon } from "astro-icon";
+const {} = Astro.props;
+---
+
+<header
+  class="sticky top-0 z-40 flex-none mx-auto w-full bg-zinc-100/90 dark:bg-zinc-900/90 md:backdrop-blur-sm"
+>
+  <div
+    class="py-3 px-3 mx-auto w-full md:flex md:justify-between max-w-4xl md:px-4"
+  >
+    <nav class="px-2 sm:px-4 w-full z-20 top-0 left-0">
+      <div
+        class="container flex flex-wrap justify-between items-center mx-auto"
+      >
+        <!-- w-12 applied to trick flex justify-between into properly centering the items here -->
+        <a href="/" class="flex items-center w-12">
+          <span
+            class="self-center text-xl font-semibold whitespace-nowrap text-zinc-900 dark:text-zinc-50"
+            >Clark Mains</span
+          >
+        </a>
+        <div class="flex md:order-2">
+          <button
+            type="button"
+            id="dark-mode-toggle"
+            class="text-zinc-500 dark:text-zinc-300 hover:bg-zinc-200 hover:text-zinc-800 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 rounded-lg text-sm p-2.5 inline-flex items-center"
+          >
+            <Icon
+              name="ic:outline-light-mode"
+              class="w-6 h-6 dark:hidden block"
+            />
+            <Icon
+              name="ic:outline-dark-mode"
+              class="w-6 h-6 dark:block hidden"
+            />
+          </button>
+          <button
+            data-collapse-toggle="navbar-sticky"
+            nav-toggle-menu
+            type="button"
+            class="inline-flex items-center p-2 text-sm rounded-lg md:hidden text-zinc-500 hover:bg-zinc-200 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="w-6 h-6"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+              ><path
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div
+          class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1 h-screen md:h-auto"
+          id="menu"
+        >
+          <ul
+            class="flex flex-col p-4 mt-4 md:flex-row md:space-x-2 md:mt-0 md:text-md md:font-medium"
+          >
+            <li>
+              <a
+                href="/"
+                class="block py-2 pr-4 pl-3 text-zinc-500 rounded hover:text-zinc-800 hover:bg-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:border-zinc-700"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="/about"
+                class="block py-2 pr-4 pl-3 text-zinc-500 rounded hover:text-zinc-800 hover:bg-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:border-zinc-700"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="/blog"
+                class="block py-2 pr-4 pl-3 text-zinc-500 rounded hover:text-zinc-800 hover:bg-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:border-zinc-700"
+                >Blog</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

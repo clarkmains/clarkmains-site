@@ -1,0 +1,57 @@
+---
+---
+
+<script is:inline>
+  // Toggle between dark and light themes
+  const darkModeToggle = document.querySelector("#dark-mode-toggle");
+
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+
+  function toggleDarkMode() {
+    document.documentElement.classList.toggle("dark");
+    localStorage.theme = document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light";
+  }
+
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener("click", () => {
+      toggleDarkMode();
+    });
+  }
+
+  // Toggle the responsive hamburger menu on main nav
+  function attachEvent(selector, event, fn) {
+    const matches = document.querySelectorAll(selector);
+    if (matches && matches.length) {
+      matches.forEach((elem) => {
+        elem.addEventListener(event, () => fn(elem), false);
+      });
+    }
+  }
+
+  window.onload = function () {
+    attachEvent("[nav-toggle-menu]", "click", function (elem) {
+      elem.classList.toggle("expanded");
+      document.body.classList.toggle("overflow-hidden");
+      document.getElementById("menu")?.classList.toggle("hidden");
+    });
+  };
+
+  window.onpageshow = function () {
+    const elem = document.querySelector("[nav-toggle-menu]");
+    if (elem) {
+      elem.classList.remove("expanded");
+    }
+    document.body.classList.remove("overflow-hidden");
+    document.getElementById("menu")?.classList.add("hidden");
+  };
+</script>

@@ -1,0 +1,39 @@
+---
+import "@assets/styles/base.css";
+import BaseScripts from "@components/BaseScripts.astro";
+import MetaTags from "@components/MetaTags.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { SITE } from "@utils/site.config.mjs";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  alt?: string;
+}
+
+const { title, description, image, alt } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <MetaTags
+      title={title || SITE.title}
+      description={description || SITE.description}
+      image={image || SITE.openGraphImage.path}
+      alt={alt || SITE.openGraphImage.alt}
+    />
+  </head>
+  <body
+    class="antialiased text-zinc-900 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-900"
+  >
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <BaseScripts />
+  </body>
+</html>

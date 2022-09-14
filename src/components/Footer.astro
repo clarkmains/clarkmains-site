@@ -1,0 +1,29 @@
+---
+import { SITE } from "@utils/site.config.mjs";
+import SocialLink from "./SocialLink.astro";
+
+const {} = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 mt-8">
+    <div
+      class="text-sm flex md:flex-row flex-col items-center justify-between py-10 md:py-10 border-t border-zinc-200 dark:border-zinc-700/40"
+    >
+      <div class="text-zinc-500 dark:text-zinc-400 mr-4 order-first">
+        © {year}
+        {SITE.author}
+      </div>
+      <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0">
+        {
+          SITE.socials.map((s) => (
+            <li>
+              <SocialLink label={s.label} link={s.link} />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,18 @@
+---
+export interface Props {
+  label: string;
+  link: string;
+}
+
+const { label, link } = Astro.props;
+---
+
+<a
+  class="text-zinc-800 dark:text-zinc-200 hover:text-black hover:dark:text-white no-underline p-2.5 inline-flex items-center"
+  aria-label={label}
+  href={link}
+  target="_blank"
+  rel="noopener"
+>
+  {label}
+</a>

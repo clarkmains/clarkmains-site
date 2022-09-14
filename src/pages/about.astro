@@ -1,0 +1,61 @@
+---
+import { Picture } from "@astrojs/image/components";
+import Layout from "@layouts/BaseLayout.astro";
+import PageHeading from "@components/PageHeading.astro";
+import GenericForm from "@components/GenericForm.astro";
+---
+
+<Layout>
+  <PageHeading>About Me</PageHeading>
+
+  <div class="mx-auto max-w-4xl py-4">
+    <Picture
+      src={"/images/about/mercedes-berlin.jpg"}
+      widths={[400, 900]}
+      sizes="(max-width: 900px) 400px, 900px"
+      alt={"Clark Mains"}
+      aspectRatio="16:9"
+    />
+  </div>
+
+  <article
+    class="container px-4 sm:px-6 mx-auto max-w-3xl prose prose-lg prose-zinc dark:prose-invert prose-img:rounded-md prose-img:shadow-lg"
+  >
+    <section>
+      <p>Hi, I'm Clark. A cloud engineer, builder and DevOps practitioner.</p>
+      <p>
+        In 2014 I used AWS for the first time. Convinced cloud was key to the
+        future of software engineering, I have been building exclusively on AWS
+        ever since!
+      </p>
+
+      <p>
+        I have attained several AWS Certifications on my journey, both as a
+        personal goal and to validate my professional experience.
+      </p>
+
+      <a href="https://www.youracclaim.com/users/clark-mains/badges">
+        <img src="/images/about/aws-certifications.png" />
+      </a>
+    </section>
+
+    <section>
+      <p>
+        My passion outside of cloud is audio production and engineering. I am
+        part of a collective of producers called <a
+          href="https://www.wejustatoms.com">We Just Atoms</a
+        >. Together we develop audio devices on a freelance basis and are also
+        building an audio SaaS in AWS.
+      </p>
+      <p>
+        In my free time I love watching motorsport and train crossfit several
+        times a week.
+      </p>
+      <p>
+        If you want to get touch, please do so using the form here or connect
+        with me on LinkedIn. I look forward to hearing from you!
+      </p>
+      <GenericForm name="contact" heading="Contact Me" />
+    </section>
+  </article>
+</Layout>

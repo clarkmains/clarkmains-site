@@ -1,0 +1,68 @@
+---
+interface Props {
+  name: string;
+  heading: string;
+}
+
+const { name, heading } = Astro.props;
+---
+
+<section class="bg-zinc-200 dark:bg-zinc-800 rounded-md">
+  <div class="py-8 px-8 md:px-16 mx-auto max-w-screen-md">
+    <p
+      class="mb-4 lg:mb-8 font-semibold text-xl text-center text-zinc-800 dark:text-zinc-300 sm:text-xl"
+    >
+      {heading}
+    </p>
+    <form
+      name={name}
+      action="/success"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="wabbot-field"
+      class="space-y-8"
+    >
+      <p class="hidden">
+        <label>
+          I'm hunting wabbots: <input name="wabbot-field" />
+        </label>
+      </p>
+      <input
+        type="hidden"
+        name="location"
+        id="location"
+        value={Astro.url.pathname}
+      />
+      <input
+        type="text"
+        required
+        name="name"
+        id="name"
+        placeholder="Name"
+        class="text-base block w-full p-2.5 rounded-md text-zinc-900 bg-zinc-50 dark:text-zinc-50 dark:bg-zinc-700 dark:placeholder-zinc-500"
+      />
+      <input
+        type="email"
+        required
+        name="email"
+        id="email"
+        placeholder="Email address"
+        class="text-base block w-full p-2.5 rounded-md text-zinc-900 bg-zinc-50 dark:text-zinc-50 dark:bg-zinc-700 dark:placeholder-zinc-500"
+      />
+      <textarea
+        id="message"
+        required
+        name="message"
+        rows="6"
+        placeholder="Your message"
+        class="text-base block w-full p-2.5 rounded-md text-zinc-900 bg-zinc-50 dark:text-zinc-50 dark:bg-zinc-700 dark:placeholder-zinc-500"
+      ></textarea>
+      <button
+        type="submit"
+        class="py-3 px-5 text-sm font-medium text-center text-zinc-50 rounded-lg bg-zinc-700 sm:w-fit hover:bg-zinc-800 focus:ring-4 focus:outline-none focus:ring-zinc-300 dark:bg-zinc-600 dark:hover:bg-zinc-700 dark:focus:ring-zinc-800"
+      >
+        Send
+      </button>
+    </form>
+  </div>
+</section>

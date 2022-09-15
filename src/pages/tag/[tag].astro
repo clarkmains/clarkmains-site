@@ -1,0 +1,41 @@
+---
+import Layout from "@layouts/BaseLayout.astro";
+import Card from "@components/BlogPostCard.astro";
+import PageHeading from "@components/PageHeading.astro";
+
+export async function getStaticPaths({}) {
+  const allPosts = await Astro.glob("../blog/*.md");
+  const sortedPosts = allPosts.sort(
+    (a, b) => Date.parse(b.frontmatter.date) - Date.parse(a.frontmatter.date)
+  );
+  const allTags = new Set();
+  sortedPosts.map((post) => {
+    post.frontmatter.tags &&
+      post.frontmatter.tags.map((tag) => allTags.add(tag));
+  });
+
+  return Array.from(allTags).map((tag) => {
+    const filteredPosts = sortedPosts.filter((post) =>
+      post.frontmatter.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: {
+        posts: filteredPosts,
+      },
+    };
+  });
+}
+
+const { posts } = Astro.props;
+const { tag } = Astro.params;
+---
+
+<Layout>
+  <PageHeading>Tag: {tag}</PageHeading>
+  <section class="max-w-4xl px-4 py-8 sm:px-6 mx-auto lg:px-8 lg:py-8">
+    <div class="grid gap-x-10 gap-y-14 md:grid-cols-2">
+      {posts.map((post) => <Card post={post} />)}
+    </div>
+  </section>
+</Layout>

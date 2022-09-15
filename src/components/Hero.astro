@@ -1,0 +1,42 @@
+---
+import { SITE } from "@utils/site.config.mjs";
+import headshot from "@assets/images/headshot.jpg";
+import { Image } from "@astrojs/image/components";
+import SocialLinkIcon from "@components/SocialLinkIcon.astro";
+---
+
+<section>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <div class="py-6 md:py-12">
+      <Image
+        src={headshot}
+        width={200}
+        height={200}
+        alt="Clark Mains headshot"
+        class="rounded-full order-first md:order-1 w-[100px]"
+      />
+    </div>
+
+    <div class="max-w-2xl">
+      <h1
+        class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+      >
+        {SITE.headline}
+      </h1>
+
+      <p
+        class="mt-6 leading-8 tracking-wide text-xl font-light text-zinc-600 dark:text-zinc-400"
+      >
+        {SITE.byline}
+      </p>
+
+      <div class="mt-6 flex gap-4">
+        {
+          SITE.socials.map((s) => (
+            <SocialLinkIcon icon={s.icon} label={s.label} link={s.link} />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

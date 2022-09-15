@@ -1,0 +1,15 @@
+---
+export interface Props {
+  label: string;
+  link: string;
+}
+
+const { label, link } = Astro.props;
+---
+
+<a
+  class="text-normal font-medium no-underline rounded-md px-8 py-3 text-zinc-600 dark:text-zinc-300 bg-zinc-200 dark:bg-zinc-700/50 hover:bg-zinc-300 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-50"
+  href={link}
+>
+  {label}
+</a>

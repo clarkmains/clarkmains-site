@@ -1,15 +1,34 @@
 ---
+import Layout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+import Card from "@components/FeaturedPostCard.astro";
+import LinkButton from "@components/LinkButton.astro";
+
+const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
+  (a, b) =>
+    new Date(b.frontmatter.date).valueOf() -
+    new Date(a.frontmatter.date).valueOf()
+);
+
+const recentPosts = posts.slice(0, 2);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <section>
+    <Hero />
+    <section class="mt-12 px-4 py-6 sm:px-6 mx-auto max-w-4xl">
+      <div>
+        <ul>
+          {
+            recentPosts.map((post) => (
+              <li class="mb-10 md:mb-16">
+                <Card post={post} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <LinkButton label="Read more posts →" link="/blog" />
+    </section>
+  </section>
+</Layout>

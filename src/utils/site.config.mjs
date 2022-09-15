@@ -13,7 +13,7 @@ export const SITE = {
   recentPosts: 2,
   headline: "Hi, I'm Clark.",
   byline:
-    "I'm a cloud engineer from Glasgow, Scotland. This is my blog - I write mostly about coding, DevOps and building things on AWS. Welcome!",
+    "I'm a cloud engineer from Glasgow, Scotland. I blog mostly about coding, DevOps and building things on AWS. Welcome!",
   socials: [
     {
       label: "AWS Certified",

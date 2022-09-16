@@ -11,7 +11,7 @@ export async function getStaticPaths({}) {
   const allTags = new Set();
   sortedPosts.map((post) => {
     post.frontmatter.tags &&
-      post.frontmatter.tags.map((tag) => allTags.add(tag));
+      post.frontmatter.tags.map((tag: string) => allTags.add(tag));
   });
 
   return Array.from(allTags).map((tag) => {
@@ -20,9 +20,7 @@ export async function getStaticPaths({}) {
     );
     return {
       params: { tag },
-      props: {
-        posts: filteredPosts,
-      },
+      props: { posts: filteredPosts },
     };
   });
 }

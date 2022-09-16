@@ -6,9 +6,7 @@ import Tags from "@components/BlogTags.astro";
 const { post } = Astro.props;
 ---
 
-<article
-  class="max-w-md mx-auto md:max-w-none grid md:grid-cols-2 gap-6 md:gap-8"
->
+<article class="mx-auto md:max-w-4xl grid md:grid-cols-2 gap-6 md:gap-8">
   <a class="relative block group" href={post.url}>
     <div
       class="relative h-0 pb-[56.25%] overflow-hidden bg-zinc-400 dark:bg-inherit rounded-sm shadow-lg dark:shadow-none"

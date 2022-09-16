@@ -1,6 +1,5 @@
 # Clark Mains Personal Site
 
-My personal site and blog, built with:
+My personal blog site, built with Astro + Tailwind CSS.
 
-- Astro
-- Tailwind CSS
+![Home page screenshot](screenshot.jpg)

@@ -1,6 +1,6 @@
 ---
+import { SITE } from "@utils/site.config.mjs";
 import { Icon } from "astro-icon";
-const {} = Astro.props;
 ---
 
 <header
@@ -17,13 +17,14 @@ const {} = Astro.props;
         <a href="/" class="flex items-center w-12">
           <span
             class="self-center text-xl font-semibold whitespace-nowrap text-zinc-900 dark:text-zinc-50"
-            >Clark Mains</span
-          >
+            >{SITE.author}
+          </span>
         </a>
         <div class="flex md:order-2">
           <button
             type="button"
             id="dark-mode-toggle"
+            aria-label="Toggle Dark Mode"
             class="text-zinc-500 dark:text-zinc-300 hover:bg-zinc-200 hover:text-zinc-800 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 rounded-lg text-sm p-2.5 inline-flex items-center"
           >
             <Icon
@@ -39,6 +40,7 @@ const {} = Astro.props;
             data-collapse-toggle="navbar-sticky"
             nav-toggle-menu
             type="button"
+            aria-label="Toggle Navigation"
             class="inline-flex items-center p-2 text-sm rounded-lg md:hidden text-zinc-500 hover:bg-zinc-200 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
           >
             <span class="sr-only">Open main menu</span>

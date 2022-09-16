@@ -2,8 +2,8 @@
 import { Picture } from "@astrojs/image/components";
 import Layout from "@layouts/BaseLayout.astro";
 import BlogTags from "@components/BlogTags.astro";
-import GenericForm from "@components/GenericForm.astro";
 import GitHubLink from "@components/GitHubLink.astro";
+import Comments from "@components/Comments.astro";
 
 export interface Props {
   content: {
@@ -48,7 +48,7 @@ const {
         class="container px-4 sm:px-6 mx-auto max-w-3xl prose prose-lg prose-zinc dark:prose-invert prose-img:rounded-md prose-img:shadow-lg prose-code:before:content-none prose-code:after:content-none"
       >
         <slot />
-        <GenericForm name="feedback" heading="Feedback? Let's hear it!" />
+        <Comments />
       </div>
     </article>
   </section>

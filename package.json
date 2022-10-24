@@ -1,6 +1,6 @@
 {
   "name": "clarkmains.com",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -10,11 +10,11 @@
     "astro": "astro"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.7.0",
-    "@astrojs/mdx": "^0.11.1",
-    "@astrojs/tailwind": "^2.0.0",
+    "@astrojs/image": "^0.10.0",
+    "@astrojs/mdx": "^0.11.4",
+    "@astrojs/tailwind": "^2.1.1",
     "@tailwindcss/typography": "^0.5.7",
-    "astro": "^1.2.4",
+    "astro": "^1.5.2",
     "astro-icon": "^0.7.3"
   }
 }

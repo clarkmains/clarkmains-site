@@ -13,17 +13,21 @@ github: "https://github.com/clarkmains/clarkmains-site"
 description: How I rebuilt my personal site and blog using Astro, Tailwind CSS and Netlify
 ---
 
-Back in May [I wrote about](/blog/tinkering-with-astro) my first experience trying the [Astro](https://astro.build/) web framework. I was so impressed, I have rewritten this site using Astro - these are my thoughts on how it went.
+Back in May [I wrote about](/blog/tinkering-with-astro) my first experience trying the [Astro](https://astro.build/) web framework. I was so impressed with Astro, I subsequently rebuilt this site and this is how it went down..
 
-## Why rewrite at all?
+## Why the rebuild?
 
-Primarily - learning.
+Primarily - **learning**.
 
-For me blogging is about learning. On several levels. I post about what I have learned but I also learn - about improving my writing - while I post. If I am lucky enough to receive feedback on a post, I may learn from that too.
+I find blogging to be a great tool for continuous improvement. On several levels.
 
-Furthermore, I learn about some new technologies by maintaining and improving the blog platform itself. Want to create a page containing React, Svelte and Vue components? No problem, Astro, with its [bring-your-own-framework](https://docs.astro.build/en/core-concepts/framework-components/) philosophy, will let you.
+I post about what I have learned and through the process of posting I hopefully learn how to make the following post better. If I get feedback on a post, I learn from that too.
 
-In this regard, Astro offers me unrivalled flexibility and opportunity to learn new things by experimenting with different frameworks within the same platform. And you always learn most when you are breaking things in production!
+Furthermore, I improve my technical skills by developing the blog platform. In this regard, Astro offers me unrivalled flexibility and opportunity to learn new things - want to create a post containing React, Svelte and Vue components? No problem, Astro, with its [bring-your-own-framework](https://docs.astro.build/en/core-concepts/framework-components/) philosophy, can do it!
+
+Secondly - performance and accessibility. Using Astro's native Image integration and Tailwind CSS it was relatively painless to build a responsive site that achieves some great Lighthouse scores!
+
+![Home page Lighthouse scores](/images/blog-replatform-astro/lighthouse-home.png)
 
 ## The Stack
 
@@ -33,7 +37,7 @@ This is the stack I settled on.
 - Astro-icon package for easy access to a huge library of SVG Icons
 - Tailwind CSS and the Typography plugin
 
-At launch, this site is written using pure Astro components but I plan to experiment with many UI Frameworks in the future.
+At launch, this site is written using only pure Astro components.
 
 In terms of hosting.. well as an AWS enthusiast, my default for static site hosting is, as you would expect, S3 + CloudFront. For this site though, I chose [Netlify](https://www.netlify.com/). Why?
 
@@ -49,7 +53,11 @@ It was a pleasure to rebuild the site with this stack and if you wish, you can c
 
 ## Core Functionality
 
-My blog posts are written in plain Markdown, which Astro supports natively 👍
+### Authoring Posts
+
+My blog posts are written in plain Markdown, which Astro [supports natively](https://docs.astro.build/en/guides/markdown-content/). I plan on writing a post in MDX soon and there is an official integration for MDX so happy days all round on the authoring front!
+
+### Serving Posts
 
 Astro uses file-based routing to generate URLs at build time based on the layout under `src/pages/`. This means any Markdown file inside `/src/pages/` will be treated as a page and Astro will automatically build a page route using the pathname of the file.
 
@@ -97,7 +105,9 @@ I implemented comments using [Giscus](https://giscus.app/) which is powered by G
 
 Giscus embeds a comments section in your page where visitors (that have a GitHub account) can submit feedback, questions and such. These interactions are stored in a GitHub Discussion in a public GitHub repository of your choice.
 
-I was initially hesitant to use Giscus due to the requirement for a GitHub Account. After mulling it over though my conclusion was - in this community, who _doesn't_ have a GitHub account? Also, I am already directing people to GitHub for my example code, so.. may as well go all in!
+I was initially hesitant to use Giscus due to the requirement for a GitHub Account..
+
+After mulling it over though my conclusion was - in this community, who _doesn't_ have a GitHub account? Also, I am already directing people to GitHub for my example code, so.. may as well go all in!
 
 If you want to see how it looks, well - scroll down to the comments section 😄
 
@@ -146,12 +156,12 @@ It is as straightforward as adding `data-netlify="true"` to your `<form>` tag, a
 
 ## Final Thoughts
 
-I have some improvements in mind for this site already!
+I have some things in mind for this site already:
 
 - Experiment with MDX when authoring my next blog post
 - Add a Projects page to showcase my side projects
-- Write E2E tests in Cypress
+- Write E2E tests in Cypress (or Playwright)
 
 I really enjoyed using Astro for this project. It is super easy to get something up and running quickly while offering a deep feature set through native integrations and third-party framework add ons.
 
-I was a big fan of [Hugo](https://gohugo.io/) and Astro reminds me of Hugo but with all the modern bells & whistles. I hope you give it a try. Thanks for reading!
+I was a big fan of [Hugo](https://gohugo.io/) and Astro reminds me of Hugo but with all the modern bells & whistles. Thanks for reading, I hope you give Astro a try!

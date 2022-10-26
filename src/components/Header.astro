@@ -6,17 +6,15 @@ import { Icon } from "astro-icon";
 <header
   class="sticky top-0 z-40 flex-none mx-auto w-full bg-zinc-100/90 dark:bg-zinc-900/90 md:backdrop-blur-sm"
 >
-  <div
-    class="py-3 px-3 mx-auto w-full md:flex md:justify-between max-w-4xl md:px-4"
-  >
-    <nav class="px-2 sm:px-4 w-full z-20 top-0 left-0">
+  <div class="py-3 px-4 mx-auto w-full md:flex md:justify-between max-w-4xl">
+    <nav class="w-full z-20 top-0 left-0">
       <div
         class="container flex flex-wrap justify-between items-center mx-auto"
       >
         <!-- w-12 applied to trick flex justify-between into properly centering the items here -->
         <a href="/" class="flex items-center w-12">
           <span
-            class="self-center text-xl font-semibold whitespace-nowrap text-zinc-900 dark:text-zinc-50"
+            class="px-2 self-center text-xl font-semibold whitespace-nowrap text-zinc-900 dark:text-zinc-50"
             >{SITE.author}
           </span>
         </a>

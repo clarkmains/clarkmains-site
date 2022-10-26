@@ -14,8 +14,8 @@ const { post } = Astro.props;
       <Picture
         src={post.frontmatter.image}
         class="absolute inset-0 object-cover w-full h-full mb-6 rounded-sm bg-zinc-400 dark:bg-inherit"
-        widths={[400, 900]}
-        sizes="(max-width: 900px) 400px, 900px"
+        widths={[700, 1000]}
+        sizes="(max-width: 700px) 700px, 1000px"
         alt={post.frontmatter.title}
         aspectRatio="16:9"
       />
